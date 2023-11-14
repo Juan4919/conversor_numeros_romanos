@@ -55,9 +55,8 @@ def entero_a_romano(numero):#1994
             list_numero[i] =  int( list_numero[i] )
             valor_romano +=  unidades.get(list_numero[i])
 
-    
-   
     return valor_romano
-
-print( entero_a_romano(1994) )
+#[3,3,3]
+print( entero_a_romano(333) )
+#CCCXXXIII
 
