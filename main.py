@@ -40,11 +40,24 @@ class RomanNumberError( Exception ):
 #MDCCXIII
 def romano_a_entero(romano:str)->int:#"III"
     valor_entero=0
+    lista_romano = list(romano)
+
+    for pos in range(0,len(lista_romano)):
+        if pos == 0:
+            if dic_romano_a_entero.get( lista_romano[pos]) < dic_romano_a_entero.get( lista_romano[pos+1]):
+                valor_entero =  dic_romano_a_entero.get( lista_romano[pos+1]) - dic_romano_a_entero.get( lista_romano[pos] )
+            else:
+                valor_entero += dic_romano_a_entero.get(lista_romano[pos])  
+        else :
+            valor_entero += dic_romano_a_entero.get(lista_romano[pos])
+
+    """    
     for i in romano:
-        valor_entero += dic_romano_a_entero.get( i )
+        valor_entero += dic_romano_a_entero.get( i , 0 )
+    """
     return valor_entero
 
-print(romano_a_entero("III"))
+print(romano_a_entero("X X I V"))
 
 #1994
 def entero_a_romano(numero:int)->str:
