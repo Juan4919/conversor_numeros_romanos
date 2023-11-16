@@ -28,11 +28,26 @@ dic_entero_a_romano={
     1000:'M',2000:'MM',3000:'MMM'
 }
 
+dic_romano_a_entero={
+    'I':1, 'V':5, 'X':10,
+    'L':50, 'C':100, 'D':500,
+    'M':1000
+}
+
 class RomanNumberError( Exception ):
     pass
 
+#MDCCXIII
+def romano_a_entero(romano:str)->int:#"III"
+    valor_entero=0
+    for i in romano:
+        valor_entero += dic_romano_a_entero.get( i )
+    return valor_entero
+
+print(romano_a_entero("III"))
+
 #1994
-def entero_a_romano(numero):
+def entero_a_romano(numero:int)->str:
     numero = "{:0>4d}".format(numero)#transforma el numero dado a un str de 4 digitos y si es menos lo complementa con ceros a la izquierda
     list_numero = list(numero)#transforma el string dado a una lista de string por cada caracter
     valor_romano =""
@@ -48,5 +63,4 @@ def entero_a_romano(numero):
     return valor_romano
 
 
-print( entero_a_romano(333) )
-
+#print( entero_a_romano(333) )
