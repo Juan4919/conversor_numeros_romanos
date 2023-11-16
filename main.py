@@ -77,3 +77,5 @@ print( entero_a_romano(333) )
 
 print(entero_a_romano(33))
 
+print(entero_a_romano(3))
+
