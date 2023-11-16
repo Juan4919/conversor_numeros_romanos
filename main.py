@@ -51,9 +51,6 @@ def entero_a_romano(numero):#1994
         cont+=1
         valor_num /= 10
 
-
-   #[ '1','9','9','4' ]
-   #['1000','900','90','4']
     '''
     for i in range(0,len(list_numero)):
        if i==0:
@@ -77,4 +74,6 @@ def entero_a_romano(numero):#1994
 #[3,3,3]
 print( entero_a_romano(333) )
 #CCCXXXIII
+
+print(entero_a_romano(33))
 
