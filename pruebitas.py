@@ -109,9 +109,39 @@ def miExcepcion():
 
 miExcepcion()
 """
+"""
 from main import RomanNumberError
 
 def pruebaException():
     raise RomanNumberError("Esto es mi excepcion")
 
 pruebaException()
+"""
+
+frutas = ["fresa","manzana","pera","platano"]
+
+if 'melon' in frutas:
+    print("si existe esta fruta")
+
+if 'piña' not in frutas:
+    print("no se encuentra piña en frutas")    
+
+
+
+dia = "martes"
+
+if dia =='sabado':
+    print("Es sabado")
+else:
+    print("No es sabado")
+
+if dia =='domingo':
+    print("Es domingo")
+else:
+    print("No es domingo")
+
+
+
+restas ={'I':('V','X'), 'X':('L','C'), 'C':('D','M') }
+
+print(restas['C'][0])

@@ -33,6 +33,12 @@ dic_romano_a_entero={
     'L':50, 'C':100, 'D':500,
     'M':1000
 }
+"""
+"I" solo se puede restar de "V" y "X".
+"X" se puede restar de "L" y "C" solamente. 
+"C" se puede restar de "D" y "M" solamente. 
+"""
+restas ={'I':('V','X'), 'X':('L','C'), 'C':('D','M') }
 
 class RomanNumberError( Exception ):
     pass
@@ -41,38 +47,56 @@ class RomanNumberError( Exception ):
 def romano_a_entero(romano:str)->int:#"III"
     valor_entero = 0
     lista_romano = list(romano)
-    longitud = len(lista_romano)
     cont_repes = 0
     caracter_anterior=""
-
     
     for caracter in lista_romano:
         if caracter == caracter_anterior:
-            cont_repes +=1
+            if caracter == "V" or caracter =="L" or caracter =="D":
+                raise RomanNumberError("Los caracteres 'D', 'L' y 'V' no se pueden repetir.")
+
+            cont_repes += 1
+        else:
+            cont_repes = 0    
+
+        if cont_repes > 2:
+            raise RomanNumberError("No se puede repetir el valor mas de tres veces")     
        
         if dic_romano_a_entero.get(caracter_anterior,0) < dic_romano_a_entero.get(caracter,0):
-            #hacer la suma y resta
+            """
+            "I" solo se puede restar de "V" y "X".
+            "X" se puede restar de "L" y "C" solamente. 
+            "C" se puede restar de "D" y "M" solamente. 
+            """
+
+            """
+            if caracter_anterior=="I" and (caracter=="V" or caracter=="X"):
+                valor_entero -= dic_romano_a_entero.get(caracter_anterior,0)*2
+           
+
+            elif caracter_anterior=="X" and (caracter=="L" or caracter=="C"):
+                valor_entero -= dic_romano_a_entero.get(caracter_anterior,0)*2
+           
+
+            elif caracter_anterior=="C" and (caracter=="D" or caracter=="M"):
+                valor_entero -= dic_romano_a_entero.get(caracter_anterior,0)*2
+
+            else:
+                raise RomanNumberError(f"{caracter_anterior} se puede restar de { restas[ caracter_anterior][0] } y {restas[ caracter_anterior][1]} solamente")    
+
+            """
+            if caracter_anterior and caracter not in restas[caracter_anterior]:
+                raise RomanNumberError(f"{caracter_anterior} se puede restar de { restas[ caracter_anterior][0] } y {restas[ caracter_anterior][1]} solamente")
+
+
             valor_entero -= dic_romano_a_entero.get(caracter_anterior,0)*2
 
         caracter_anterior = caracter
         valor_entero += dic_romano_a_entero.get(caracter,0)
 
-    
-    """
-    for pos in range(longitud):
-        if pos != 0:
-            if dic_romano_a_entero.get( lista_romano[pos-1]) < dic_romano_a_entero.get( lista_romano[pos]):
-                valor_entero -= dic_romano_a_entero.get(lista_romano[pos-1])
-                valor_entero += ( dic_romano_a_entero.get( lista_romano[pos]) - dic_romano_a_entero.get( lista_romano[pos-1] ) )
-            else:
-                valor_entero += dic_romano_a_entero.get(lista_romano[pos])  
-        else :
-            valor_entero += dic_romano_a_entero.get(lista_romano[pos])
-    """
-    print("esto es mi contador de repeticiones: ",cont_repes)
     return valor_entero
 
-print(romano_a_entero("IIII"))
+#print(romano_a_entero("XM"))
 
 #1994
 def entero_a_romano(numero:int)->str:
