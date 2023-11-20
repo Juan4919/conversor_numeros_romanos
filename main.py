@@ -39,10 +39,26 @@ class RomanNumberError( Exception ):
 
 #MDCCXIII
 def romano_a_entero(romano:str)->int:#"III"
-    valor_entero=0
+    valor_entero = 0
     lista_romano = list(romano)
     longitud = len(lista_romano)
+    cont_repes = 0
+    caracter_anterior=""
 
+    
+    for caracter in lista_romano:
+        if caracter == caracter_anterior:
+            cont_repes +=1
+       
+        if dic_romano_a_entero.get(caracter_anterior,0) < dic_romano_a_entero.get(caracter,0):
+            #hacer la suma y resta
+            valor_entero -= dic_romano_a_entero.get(caracter_anterior,0)*2
+
+        caracter_anterior = caracter
+        valor_entero += dic_romano_a_entero.get(caracter,0)
+
+    
+    """
     for pos in range(longitud):
         if pos != 0:
             if dic_romano_a_entero.get( lista_romano[pos-1]) < dic_romano_a_entero.get( lista_romano[pos]):
@@ -52,10 +68,11 @@ def romano_a_entero(romano:str)->int:#"III"
                 valor_entero += dic_romano_a_entero.get(lista_romano[pos])  
         else :
             valor_entero += dic_romano_a_entero.get(lista_romano[pos])
-
+    """
+    print("esto es mi contador de repeticiones: ",cont_repes)
     return valor_entero
 
-print(romano_a_entero("III"))
+print(romano_a_entero("IIII"))
 
 #1994
 def entero_a_romano(numero:int)->str:

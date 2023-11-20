@@ -1,4 +1,4 @@
-diccionario = {"jose":10,"carlos":23,"maria":33}
+#diccionario = {"jose":10,"carlos":23,"maria":33}
 #print(diccionario.get("maria"))
 
 #for c,v in diccionario.items():
@@ -68,7 +68,7 @@ d1.update({'a':100,'b':20})
 d1.popitem()
 """
 
-
+"""
 dic_entero_a_romano={
     1:'I',2:'II',3:'III',4:'IV',5:'V',6:'VI',7:'VII',8:'VIII',9:'IX',
     10:'X',20:'XX',30:'XXX',40:'XL',50:'L',60:'LX',70:'LXX',80:'LXXX',90:'XC',
@@ -84,3 +84,34 @@ dic_romano_a_entero={
 
 for i in "III":
     print(i)
+    """
+"""
+pruebas= [1,2,3]
+try:
+    print(pruebas[6])
+except IndexError:
+    print("La longitud no existe")
+try:
+    division = 10/0
+except ZeroDivisionError:
+    print("No se puede dividir entre Cero '0' ") 
+    """   
+"""
+try:
+    division = 10/0
+except Exception as e:
+    print("No se puede dividir entre Cero '0' ")
+    """
+"""
+def miExcepcion():
+    raise Exception("Esto es mi propia excepcion") #generar una excepcion
+
+
+miExcepcion()
+"""
+from main import RomanNumberError
+
+def pruebaException():
+    raise RomanNumberError("Esto es mi excepcion")
+
+pruebaException()
