@@ -49,8 +49,6 @@ def romano_a_entero(romano:str)->int:
             if (caracter_anterior == caracter_ante_anterior) and (caracter_anterior in "IXC"):
                 raise RomanNumberError("el valor no se puede restar")
 
-
-
         caracter_ante_anterior = caracter_anterior
         caracter_anterior = caracter
        
