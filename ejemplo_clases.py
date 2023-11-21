@@ -1,4 +1,12 @@
-class Heroe:
+class Persona:
+    apellido=""
+    dni=""
+    direccion=""
+    nacionalidad=""
+
+
+
+class Heroe(Persona):#Heroe hereda los atributos y metodos de la clase Persona, Persona es clase padre de Heroe, Heroe es clase hijo de Persona
     #variables o atributos de la clase Heroe
     nombre = ""
     poder = ""
@@ -27,6 +35,10 @@ print(spyderman.datos())
 
 iroman = Heroe("Tony Stark","Millonario","Hombre de acero")
 iroman.edad=40
+iroman.dni="dkjfkdjf"
+iroman.direccion="Malibu california 232"
+iroman.apellido="Stark"
+iroman.nacionalidad="EEUU"
 print(iroman.datos())
 
 hulk = Heroe("Bruce Banner","Nervios","Increible")

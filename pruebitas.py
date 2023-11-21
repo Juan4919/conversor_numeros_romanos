@@ -162,8 +162,18 @@ else:
 
 
 """
+"""
 nombre = "joseantonioparra"
 if 'pepe' in nombre:
     print("si se encuentra") 
 else:
     print("no se encuentra")     
+"""
+
+num=4545
+
+
+if type (num) == int:
+    print("si")
+else:
+    print("no")
