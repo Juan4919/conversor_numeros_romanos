@@ -62,3 +62,23 @@ def test_romano_a_entero_restar_solo_de_C_DM():
         romano_a_entero("C")
     assert str(exeptionInfo.value) == "'C' se puede restar de 'D' y 'M' solamente"    
 """
+def test_romano_a_entero_no_se_puede_restar_VLD():
+    with pytest.raises(RomanNumberError ) as exeptionInfo:
+        romano_a_entero("VX")
+    assert str(exeptionInfo.value) == "V, L y D nunca se pueden restar"
+
+def test_romano_a_entero_no_se_puede_restar_VLD_2():
+    with pytest.raises(RomanNumberError ) as exeptionInfo:
+        romano_a_entero("LC")
+    assert str(exeptionInfo.value) == "V, L y D nunca se pueden restar"
+
+def test_romano_a_entero_no_se_puede_restar_VLD_3():
+    with pytest.raises(RomanNumberError ) as exeptionInfo:
+        romano_a_entero("DM")
+    assert str(exeptionInfo.value) == "V, L y D nunca se pueden restar"
+
+def test_romano_a_entero_formato_incorrecto():
+    with pytest.raises(RomanNumberError ) as exeptionInfo:
+        romano_a_entero("IIX")
+    assert str(exeptionInfo.value) == "el valor no se puede restar"
+    

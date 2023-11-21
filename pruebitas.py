@@ -117,7 +117,7 @@ def pruebaException():
 
 pruebaException()
 """
-
+"""
 frutas = ["fresa","manzana","pera","platano"]
 
 if 'melon' in frutas:
@@ -145,3 +145,25 @@ else:
 restas ={'I':('V','X'), 'X':('L','C'), 'C':('D','M') }
 
 print(restas['C'][0])
+"""
+"""
+frutas = ["fresa","manzana","pera","platano"]
+
+if 'melon' not in frutas:
+    print("si existe esta fruta")
+"""
+"""
+valor =""
+
+if valor:
+    print("no esta vacio")
+else:
+    print("si esta vacio")    
+
+
+"""
+nombre = "joseantonioparra"
+if 'pepe' in nombre:
+    print("si se encuentra") 
+else:
+    print("no se encuentra")     
