@@ -93,7 +93,7 @@ class NumeroRomano:
         
 
 
-
+"""
 prueba = NumeroRomano("XXVII")
 print("Romano a entero:",prueba)
 print("Valor Numerico:",prueba.valor_numerico)
@@ -103,4 +103,4 @@ prueba2 =NumeroRomano(34)
 print("Entero a romano:",prueba2)
 print("Valor Numerico:",prueba2.valor_numerico)
 print("Valor Romano",prueba2.representacion_romano)
-
+"""
