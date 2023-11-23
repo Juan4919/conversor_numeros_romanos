@@ -2,12 +2,23 @@ from romanos_exception import RomanNumberError
 from utils.utiles import *
 
 class NumeroRomano:
+    valor_numerico=0
+    representacion_romano=""
+    valor=None
+
     def __init__(self,valor):
-        self.valor = valor
-        if isinstance(self.valor, str):#aqui ingresa si el valor es str
-            self.romano_a_entero(self.valor)
-        elif isinstance(self.valor,int):#aqui ingresa si el valor es int    
-            self.entero_a_romano(self.valor)        
+        #self.valor = valor
+        if isinstance(valor, str):#aqui ingresa si el valor es str
+            self.valor=valor
+            self.representacion_romano=valor
+            self.valor_numerico=self.romano_a_entero(valor)
+        elif isinstance(valor,int):#aqui ingresa si el valor es int   
+            self.valor=valor
+            self.valor_numerico=valor
+            self.representacion_romano=self.entero_a_romano(valor)
+        else:
+            raise RomanNumberError("El valor debe ser cadena o entero")  
+                    
             
     def entero_a_romano(self,numero:int)->str:
         if numero > 3999 or numero < 0:
@@ -75,9 +86,21 @@ class NumeroRomano:
             return str(self.valor_entero)
         elif isinstance(self.valor,int):#aqui ingresa si el valor es int    
             return self.valor_romano
+        
+    def __add__(self,otro):
+        if isinstance(otro,NumeroRomano):
+            return NumeroRomano(self.valor_numerico + otro.valor_numerico)
+        
+
+
 
 prueba = NumeroRomano("XXVII")
-print(prueba)
+print("Romano a entero:",prueba)
+print("Valor Numerico:",prueba.valor_numerico)
+print("Valor Romano",prueba.representacion_romano)
+print("======================================")
 prueba2 =NumeroRomano(34)
-print(prueba2)
+print("Entero a romano:",prueba2)
+print("Valor Numerico:",prueba2.valor_numerico)
+print("Valor Romano",prueba2.representacion_romano)
 
