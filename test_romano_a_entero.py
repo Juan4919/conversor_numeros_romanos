@@ -1,4 +1,4 @@
-from main import romano_a_entero,RomanNumberError
+from romanosapp.main import romano_a_entero,RomanNumberError
 import pytest
 
 def test_romano_a_entero():
